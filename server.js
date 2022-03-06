@@ -21,7 +21,10 @@ app.set('view engine', 'ejs');
 
 
 app.get('/', function (req, res) {
-    res.render('index');
+    res.render('index', {
+        weather: null,
+        place: null
+    });
 });
 
 // Post request for receive data from openweathermap using city name
@@ -35,10 +38,40 @@ app.post('/', (req, res) => {
 
     // Request for data using the URL
     request(url, function (err, response, body) {
+        if (err) {
+            res.render('index', { weather: null, place: 'Error, please try again' });
+            console.log(err);
+        } else {
+            // Create object from data 
+            let weather = JSON.parse(body);
+            if (weather.main == undefined) {
+                res.render('index', {
+                    weather: null,
+                    place: `${req.body.city} doesn't exist`,
+                });
+            } else {
+                let place = `${weather.name}, ${weather.sys.country}`,
+                    temp = `${Math.round(weather.main.temp)}`,
+                    description = `${weather.weather[0].description}`,
+                    icon = `http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`,
+                    min = `${Math.round(weather.main.temp_min)}`,
+                    max = `${Math.round(weather.main.temp_max)}`,
+                    humidity = `${weather.main.humidity}`,
+                    wind = `${Math.round(weather.wind.speed * 10) / 10}`;
 
-        // Create object from data 
-        let forecast = JSON.parse(body);
-        console.log(forecast);
+                res.render('index', {
+                    weather: weather,
+                    place: place,
+                    temp: temp,
+                    description: description,
+                    icon: icon,
+                    min: min,
+                    max: max,
+                    humidity: humidity,
+                    wind: wind,
+                });
+            };
+        };
     });
 });
 

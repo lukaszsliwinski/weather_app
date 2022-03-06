@@ -30,7 +30,7 @@
             <div class="row pt-5">
                 <div class="col p-0">
                     <form action="/" method="post" class="search-bar bg-black bg-opacity-75">
-                        <input name="city" type="text" class="city-input" placeholder="City..." required>
+                        <input name="city" type="text" class="city-input" placeholder="City..." maxlength="40" required>
                         <button type="submit" class="submit-btn">
                             <i class="fa-solid fa-magnifying-glass"></i>
                         </button>
@@ -42,32 +42,48 @@
                     <div class="main-card bg-black bg-opacity-75">
                         <div class="row">
                             <div class="col">
-                                <div class="city">Buenos Aires</div>
+                                <div class="city"><%= place %></div>
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-7">
-                                <img src="images/04d@2x.png" class="icon" alt="weather-icon">
-                                <div class="desc">cloudy</div>
+                            <div class="col-8">
+                                <% if (weather !== null) { %>
+                                <img src="<%= icon %>" class="icon" alt="weather-icon">
+                                <div class="description"><%= description %></div>
+                                <% } %>   
                             </div>
                             <div class="col">
-                                <div class="temp">12&#8451;</div>                                
+                                <% if (weather !== null) { %>
+                                <div class="temp"><%= temp %>&#8451;</div>
+                                <% } %>                                
                             </div>
                         </div>
                     </div>
-              </div>
-          </div>
-          <div class="row pt-3">
-            <div class="col p-0">
-                <div class="small-card bg-black bg-opacity-75">9&#8451; / 13&#8451;</div>
+                </div>
             </div>
-            <div class="col p-0">
-                <div class="small-card bg-black bg-opacity-75"><i class="fa-solid fa-droplet"></i> 80 %</div>
+            <div class="row pt-3">
+                <div class="col p-0">
+                    <div class="small-card bg-black bg-opacity-75">
+                        <% if (weather !== null) { %>
+                        <%= min %>&#8451; / <%= max %>&#8451;
+                        <% } %>
+                    </div>
+                </div>
+                <div class="col p-0">
+                    <div class="small-card bg-black bg-opacity-75">
+                        <% if (weather !== null) { %>
+                        <i class="fa-solid fa-droplet"></i> <%= humidity %> %
+                        <% } %>
+                    </div>
+                </div>
+                <div class="col p-0">
+                    <div class="small-card bg-black bg-opacity-75">
+                        <% if (weather !== null) { %>
+                        <i class="fa-solid fa-wind"></i> <%= wind %> m/s
+                        <% } %>
+                    </div>
+                </div>
             </div>
-            <div class="col p-0">
-                <div class="small-card bg-black bg-opacity-75"><i class="fa-solid fa-wind"></i> 1.5 m/s</div>
-            </div>
-        </div>
         </div>
     </div>
 </body>
