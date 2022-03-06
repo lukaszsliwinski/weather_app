@@ -1,8 +1,15 @@
+/* reset defaul styles */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
+
+body {
+    color: white;
+}
+
 
 .app {
     height: 100vh;
@@ -16,19 +23,68 @@
     height: 500px;
 }
 
-
 .search-bar {
-    width: 90%;
-    height: 50px;
+    margin: 0 5px;
+}
+.city-input {
+    outline: none;
+    border: 0;
+    border-bottom: 1.5px solid transparent;
+    width: 78%;
+    height: 40px;
     margin: 10px 5%;
-    font-size: 30px;
+    font-size: 25px;
+    background-color: transparent;
+    color: white;
 }
 
+.city-input:focus {
+    transition: border-bottom 0.4s;
+    border-bottom: 1.5px solid white;
+}
 
-.card {
-    height: 170px;
+.submit-btn {
+    border: 0;
+    background: none;
+	cursor: pointer;
+	font: inherit;
+    font-size: 25px;
+    color: white;
 }
 
 .main-card {
-    height: 300px;
+    height: 160px;
+    margin: 0 5px;
+}
+
+.city {
+    height: 60px;
+    font-size: 35px;
+    padding: 5px 0 0 20px;
+}
+
+.temp {
+    font-size: 60px;
+    text-align: center;
+}
+
+.icon {
+    width: 80px;
+    margin-left: 15px;
+    margin-bottom: 15px;
+}
+
+.desc {
+    display: inline-block;
+    font-size: 30px;
+    padding-top: 25px;
+}
+
+
+.small-card {
+    height: 100px;
+    margin: 0 5px;
+    line-height: 100px;
+    text-align: center;
+    font-size: 25px;
 }

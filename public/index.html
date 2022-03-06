@@ -16,29 +16,54 @@
 
     <link rel="stylesheet" href="style.css">
 
+    <!-- Font Awesome -->
+    <link href="../node_modules/@fortawesome/fontawesome-free/css/fontawesome.css" rel="stylesheet">
+    <link href="../node_modules/@fortawesome/fontawesome-free/css/brands.css" rel="stylesheet">
+    <link href="../node_modules/@fortawesome/fontawesome-free/css/solid.css" rel="stylesheet">
+
 </head>
 <body>
     <div class="app">
         <div class="container-sm">
             <div class="row pt-5">
-                <div class="col p-0 bg-black">
-                    <input type="text" class="search-bar">
+                <div class="col p-0">
+                    <form action="/" method="post" class="search-bar bg-black bg-opacity-75">
+                        <input name="city" type="text" class="city-input" placeholder="City..." required>
+                        <button type="submit" class="submit-btn">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </button>
+                    </form>
                 </div>
             </div>
             <div class="row pt-3">
-              <div class="col p-1 bg-black">
-                  <div class="main-card"></div>
+                <div class="col p-0">
+                    <div class="main-card bg-black bg-opacity-75">
+                        <div class="row">
+                            <div class="col">
+                                <div class="city">Buenos Aires</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-7">
+                                <img src="./04d@2x.png" class="icon" alt="weather-icon">
+                                <div class="desc">cloudy</div>
+                            </div>
+                            <div class="col">
+                                <div class="temp">12&#8451;</div>                                
+                            </div>
+                        </div>
+                    </div>
               </div>
           </div>
           <div class="row pt-3">
-            <div class="col p-0 m-1 bg-black">
-                <div class="card"></div>
+            <div class="col p-0">
+                <div class="small-card bg-black bg-opacity-75">9&#8451; / 13&#8451;</div>
             </div>
-            <div class="col p-0 m-1 bg-black">
-                <div class="card"></div>
+            <div class="col p-0">
+                <div class="small-card bg-black bg-opacity-75"><i class="fa-solid fa-droplet"></i> 80 %</div>
             </div>
-            <div class="col p-0 m-1 bg-black">
-                <div class="card"></div>
+            <div class="col p-0">
+                <div class="small-card bg-black bg-opacity-75"><i class="fa-solid fa-wind"></i> 1.5 m/s</div>
             </div>
         </div>
         </div>
