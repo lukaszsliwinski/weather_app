@@ -17,6 +17,12 @@ const apiKey = `${process.env.API_KEY}`;
 app.use(express.static('./public'));
 app.use(bp.json());
 app.use(bp.urlencoded({ extended: true }));
+app.set('view engine', 'ejs');
+
+
+app.get('/', function (req, res) {
+    res.render('index');
+});
 
 // Post request for receive data from openweathermap using city name
 app.post('/', (req, res) => {
