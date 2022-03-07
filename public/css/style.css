@@ -4,7 +4,7 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+/* POZYCJONOWANIE PO MARGIN */
 
 body {
     color: white;
@@ -57,29 +57,33 @@ body {
     margin: 0 5px;
 }
 
+.icon {
+    width: 60px;
+    margin-bottom: 15px;
+    margin-left: 5px;
+}
+
 .city {
-    height: 60px;
+    display: inline-block;
+    height: 115px;
     font-size: 35px;
-    padding: 5px 0 0 20px;
+    padding-top: 5px;
     overflow-wrap: break-word;
 }
 
-.temp {
-    font-size: 60px;
-    text-align: center;
-}
-
-.icon {
-    width: 50px;
-    margin-left: 15px;
-    margin-bottom: 15px;
-}
 
 .description {
-    display: inline-block;
-    font-size: 15px;
-    padding-top: 25px;
+    font-size: 22px;
+    padding-left: 15px;
 }
+
+.date {
+    font-size: 20px;
+    text-align: end;
+    padding: 5px 15px 0 0;
+}
+
+
 
 
 .small-card {

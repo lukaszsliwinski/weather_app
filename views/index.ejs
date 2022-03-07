@@ -14,6 +14,7 @@
         crossorigin="anonymous"
     />
 
+    <!-- style -->
     <link rel="stylesheet" href="css/style.css">
 
     <!-- Font Awesome -->
@@ -23,10 +24,13 @@
         integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"
     />
+
 </head>
 <body>
     <div class="app">
         <div class="container-sm">
+
+            <!-- input area -->
             <div class="row pt-5">
                 <div class="col p-0">
                     <form action="/" method="post" class="search-bar bg-black bg-opacity-75">
@@ -37,108 +41,115 @@
                     </form>
                 </div>
             </div>
+
+            <!-- main card -->
             <div class="row pt-3">
                 <div class="col p-0">
                     <div class="main-card bg-black bg-opacity-75">
                         <div class="row">
                             <div class="col">
+                                <% if (weather !== null) { %>
+                                    <img src="<%= icon %>" class="icon" alt="weather-icon">
+                                <% } %>
                                 <div class="city"><%= place %></div>
                             </div>
                         </div>
+
+                        <% if (weather !== null) { %>
                         <div class="row">
                             <div class="col-8">
-                                <% if (weather !== null) { %>
-                                    <div class="description"><%= description %></div>
-                                <% } %>   
+                                <div class="description"><%= description %></div>
                             </div>
                             <div class="col">
-                                <% if (weather !== null) { %>
-                                    <img src="<%= icon %>" class="icon" alt="weather-icon">
-                                <% } %>                                
+                                <div class="date" id="date"></div>
                             </div>
                         </div>
+                        <% } %>
+                        
                     </div>
                 </div>
             </div>
+
+
+            <!-- conditions cards - don't render if weather == null -->
+            <% if (weather !== null) { %>
+
+            <!-- 1st row -->
             <div class="row pt-3">
                 <div class="col p-0">
                     <div class="small-card big-temp bg-black bg-opacity-75">
                         <h6>actual temp</h6>
-                        <% if (weather !== null) { %>
-                            <i class="fa-solid fa-temperature-half"></i> <%= temp %>&#8451;
-                        <% } %>
+                        <i class="fa-solid fa-temperature-half"></i> <%= temp %>&#8451;
                     </div>
                 </div>
                 <div class="col p-0">
                     <div class="small-card big-temp bg-black bg-opacity-75">
                         <h6>sensed temp</h6>
-                        <% if (weather !== null) { %>
-                            <i class="fa-solid fa-temperature-half"></i> <%= sensed %>&#8451;
-                        <% } %>
+                        <i class="fa-solid fa-temperature-half"></i> <%= sensed %>&#8451;
                     </div>
                 </div>
                 <div class="col p-0">
                     <div class="small-card bg-black bg-opacity-75">
                         <h6>min / max temp</h6>
-                        <% if (weather !== null) { %>
-                            <%= min %>&#8451; / <%= max %>&#8451;
-                        <% } %>
+                        <%= min %>&#8451; / <%= max %>&#8451;
                     </div>
                 </div>
             </div>
+
+            <!-- 2nd row -->
             <div class="row pt-3">
                 <div class="col p-0">
                     <div class="small-card bg-black bg-opacity-75">
                         <h6>sunrise</h6>
-                        <% if (weather !== null) { %>
-                            <i class="fa-solid fa-sun"></i> <%= sunrise %>
-                        <% } %>
+                        <i class="fa-solid fa-sun"></i> <%= sunrise %>
                     </div>
                 </div>
                 <div class="col p-0">
                     <div class="small-card bg-black bg-opacity-75">
                         <h6>sunset</h6>
-                        <% if (weather !== null) { %>
-                            <i class="fa-solid fa-moon"></i> <%= sunset %>
-                        <% } %>
+                        <i class="fa-solid fa-moon"></i> <%= sunset %>
                     </div>
                 </div>
                 <div class="col p-0">
                     <div class="small-card bg-black bg-opacity-75">
                         <h6>wind speed</h6>
-                        <% if (weather !== null) { %>
-                            <i class="fa-solid fa-wind"></i> <%= wind %> m/s
-                        <% } %>
+                        <i class="fa-solid fa-wind"></i> <%= wind %> m/s
                     </div>
                 </div>
             </div>
+
+            <!-- 3rd row -->
             <div class="row pt-3">
                 <div class="col p-0">
                     <div class="small-card bg-black bg-opacity-75">
                         <h6>cloudiness</h6>
-                        <% if (weather !== null) { %>
-                            <i class="fa-solid fa-cloud"></i> <%= cloudiness %> %
-                        <% } %>
+                        <i class="fa-solid fa-cloud"></i> <%= cloudiness %> %
                     </div>
                 </div>
                 <div class="col p-0">
                     <div class="small-card bg-black bg-opacity-75">
                         <h6>pressure</h6>
-                        <% if (weather !== null) { %>
-                            <i class="fa-solid fa-gauge-simple"></i> <%= pressure %> hPa
-                        <% } %>
+                        <i class="fa-solid fa-gauge-simple"></i> <%= pressure %> hPa
                     </div>
                 </div>
                 <div class="col p-0">
                     <div class="small-card bg-black bg-opacity-75">
                         <h6>humidity</h6>
-                        <% if (weather !== null) { %>
-                            <i class="fa-solid fa-water"></i> <%= humidity %> %
-                        <% } %>
+                        <i class="fa-solid fa-water"></i> <%= humidity %> %
                     </div>
                 </div>
             </div>
+
+            <% } %>
+
         </div>
     </div>
+
+    <!-- get date -->
+    <script>
+        const today = new Date();
+        const date = today.getDate()+'-'+(today.getMonth()+1)+'-'+today.getFullYear();
+        document.getElementById('date').innerHTML = date;
+    </script>
 </body>
 </html>

@@ -47,12 +47,9 @@ app.post('/', (req, res) => {
             if (weather.main == undefined) {
                 res.render('index', {
                     weather: null,
-                    place: `${req.body.city} doesn't exist`,
+                    place: `\xa0\xa0${req.body.city} doesn't exist`,
                 });
             } else {
-                console.log(weather);
-                console.log(`${weather.sys.sunrise} - ${typeof weather.sys.sunrise}`);
-                console.log(`${weather.timezone} - ${typeof weather.timezone}`);
                 const formatTime = function(unixTimestamp) {
                     let date = new Date(unixTimestamp * 1000);
                     let hours = date.getHours();
