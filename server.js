@@ -50,25 +50,45 @@ app.post('/', (req, res) => {
                     place: `${req.body.city} doesn't exist`,
                 });
             } else {
+                console.log(weather);
+                console.log(`${weather.sys.sunrise} - ${typeof weather.sys.sunrise}`);
+                console.log(`${weather.timezone} - ${typeof weather.timezone}`);
+                const formatTime = function(unixTimestamp) {
+                    let date = new Date(unixTimestamp * 1000);
+                    let hours = date.getHours();
+                    let minutes = '0' + date.getMinutes();
+                    return hours + ':' + minutes.slice(-2);
+                }
+
                 let place = `${weather.name}, ${weather.sys.country}`,
-                    temp = `${Math.round(weather.main.temp)}`,
                     description = `${weather.weather[0].description}`,
                     icon = `http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`,
+                    temp = `${Math.round(weather.main.temp)}`,
+                    sensed = `${Math.round(weather.main.feels_like)}`,
                     min = `${Math.round(weather.main.temp_min)}`,
                     max = `${Math.round(weather.main.temp_max)}`,
-                    humidity = `${weather.main.humidity}`,
-                    wind = `${Math.round(weather.wind.speed * 10) / 10}`;
+                    sunrise = `${formatTime(weather.sys.sunrise + weather.timezone - 3600)}`,
+                    sunset = `${formatTime(weather.sys.sunset + weather.timezone - 3600)}`,
+                    wind = `${Math.round(weather.wind.speed * 10) / 10}`,
+                    cloudiness = `${weather.clouds.all}`,
+                    pressure = `${Math.round(weather.main.pressure)}`,
+                    humidity = `${weather.main.humidity}`;
 
                 res.render('index', {
                     weather: weather,
                     place: place,
-                    temp: temp,
                     description: description,
                     icon: icon,
+                    temp: temp,
+                    sensed: sensed,
                     min: min,
                     max: max,
-                    humidity: humidity,
+                    sunrise: sunrise,
+                    sunset: sunset,
                     wind: wind,
+                    cloudiness: cloudiness,
+                    pressure: pressure,
+                    humidity: humidity,
                 });
             };
         };
