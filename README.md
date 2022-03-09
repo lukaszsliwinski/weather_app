@@ -6,7 +6,7 @@ Application for check actual weather in chosen city. Weather data are taken from
 ## Used technologies
 JavaScript<br>
 Node.js 16<br>
-EJS<br>
+HTML5<br>
 CSS3<br>
 Bootstrap 5
 
@@ -25,8 +25,13 @@ cd weather_app
 ```bash
 npm install
 ```
-5 Run application on localhost
+5 Create .env file in main directory. In this file, create variable:
+```bash
+API_KEY = 'your_api_key'
+```
+Create an account on https://openweathermap.org, get api key and assign to the API_KEY variable.<br><br>
+6 Run application on localhost
 ```bash
 node app.js
 ```
-6 Enter localhost:3000 in browser to run the app
+7 Enter localhost:3000 in browser to run the app
