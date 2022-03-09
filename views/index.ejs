@@ -70,75 +70,38 @@
                 </div>
             </div>
 
-
             <!-- conditions cards - don't render if weather == null -->
             <% if (weather !== null) { %>
 
-            <!-- 1st row -->
-            <div class="row pt-3">
-                <div class="col p-0">
-                    <div class="small-card big-temp bg-black bg-opacity-75">
-                        <h6>actual temp</h6>
-                        <i class="fa-solid fa-temperature-half"></i> <%= temp %>&#8451;
-                    </div>
-                </div>
-                <div class="col p-0">
-                    <div class="small-card big-temp bg-black bg-opacity-75">
-                        <h6>sensed temp</h6>
-                        <i class="fa-solid fa-temperature-half"></i> <%= sensed %>&#8451;
-                    </div>
-                </div>
-                <div class="col p-0">
-                    <div class="small-card bg-black bg-opacity-75">
-                        <h6>min / max temp</h6>
-                        <%= min %>&#8451; / <%= max %>&#8451;
-                    </div>
-                </div>
-            </div>
+                <% const data = [
+                    ["actual temp", "fa-solid fa-temperature-half", temp+"°C"],
+                    ["sensed temp", "fa-solid fa-temperature-half", sensed+"°C",],
+                    ["min / max temp", "", min+"°C / "+max+"°C"],
+                    ["sunrise", "fa-solid fa-sun", sunrise],
+                    ["sunset", "fa-solid fa-moon", sunset],
+                    ["wind speed", "fa-solid fa-wind", wind+" m/s"],
+                    ["cloudiness", "fa-solid fa-cloud", cloudiness+" %",],
+                    ["pressure", "fa-solid fa-gauge-simple", pressure],
+                    ["humidity", "fa-solid fa-water", humidity+" %"]
+                ]; %>
 
-            <!-- 2nd row -->
-            <div class="row pt-3">
-                <div class="col p-0">
-                    <div class="small-card bg-black bg-opacity-75">
-                        <h6>sunrise</h6>
-                        <i class="fa-solid fa-sun"></i> <%= sunrise %>
+                <% const renderCard = (i) => { %>
+                    <div class="col p-0">
+                        <div class="small-card bg-black bg-opacity-75">
+                            <h6><%= data[i][0] %></h6>
+                            <i class="<%= data[i][1] %>"></i> <%= data[i][2] %>
+                        </div>
                     </div>
-                </div>
-                <div class="col p-0">
-                    <div class="small-card bg-black bg-opacity-75">
-                        <h6>sunset</h6>
-                        <i class="fa-solid fa-moon"></i> <%= sunset %>
-                    </div>
-                </div>
-                <div class="col p-0">
-                    <div class="small-card bg-black bg-opacity-75">
-                        <h6>wind speed</h6>
-                        <i class="fa-solid fa-wind"></i> <%= wind %> m/s
-                    </div>
-                </div>
-            </div>
+                <% } %>
 
-            <!-- 3rd row -->
-            <div class="row pt-3">
-                <div class="col p-0">
-                    <div class="small-card bg-black bg-opacity-75">
-                        <h6>cloudiness</h6>
-                        <i class="fa-solid fa-cloud"></i> <%= cloudiness %> %
+                <!-- Render rows with cards (3 cards in row) -->
+                <% for (let i=0; i<9; i+=3) { %>
+                    <div class="row pt-3">
+                        <%= renderCard(i); %>
+                        <%= renderCard(i+1); %>
+                        <%= renderCard(i+2); %>
                     </div>
-                </div>
-                <div class="col p-0">
-                    <div class="small-card bg-black bg-opacity-75">
-                        <h6>pressure</h6>
-                        <i class="fa-solid fa-gauge-simple"></i> <%= pressure %> hPa
-                    </div>
-                </div>
-                <div class="col p-0">
-                    <div class="small-card bg-black bg-opacity-75">
-                        <h6>humidity</h6>
-                        <i class="fa-solid fa-water"></i> <%= humidity %> %
-                    </div>
-                </div>
-            </div>
+                <% } %>
 
             <% } %>
 
