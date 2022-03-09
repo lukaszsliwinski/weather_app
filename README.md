@@ -6,7 +6,7 @@ Application for check actual weather in chosen city. Weather data are taken from
 ## Used technologies
 JavaScript<br>
 Node.js 16<br>
-HTML5<br>
+EJS<br>
 CSS3<br>
 Bootstrap 5
 
