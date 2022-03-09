@@ -73,6 +73,13 @@
             <!-- conditions cards - don't render if weather == null -->
             <% if (weather !== null) { %>
 
+                <!--
+                List of data using below to render small cards with conditions.
+                In every nested list:
+                    1st element is headers content
+                    2nd element is class for render font-awesome icon
+                    3rd element is weather parameter sent from server.js
+                 -->
                 <% const data = [
                     ["actual temp", "fa-solid fa-temperature-half", temp+"°C"],
                     ["sensed temp", "fa-solid fa-temperature-half", sensed+"°C",],
@@ -85,6 +92,7 @@
                     ["humidity", "fa-solid fa-water", humidity+" %"]
                 ]; %>
 
+                <!-- Function to render small card using data from list above -->
                 <% const renderCard = (i) => { %>
                     <div class="col p-0">
                         <div class="small-card bg-black bg-opacity-75">

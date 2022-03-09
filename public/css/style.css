@@ -1,15 +1,15 @@
-/* reset defaul styles */
+/* reset default styles */
 * {
     margin: 0;
-    padding: 0;
     box-sizing: border-box;
+    padding: 0;
 }
-/* POZYCJONOWANIE PO MARGIN */
 
+
+/* app styles */
 body {
     color: white;
 }
-
 
 .app {
     height: 100vh;
@@ -23,18 +23,21 @@ body {
     height: 500px;
 }
 
+
+/* input area styles */
 .search-bar {
     margin: 0 5px;
 }
+
 .city-input {
     outline: none;
+    margin: 10px 5%;
     border: 0;
     border-bottom: 1.5px solid transparent;
     width: 78%;
     height: 40px;
-    margin: 10px 5%;
-    font-size: 25px;
     background-color: transparent;
+    font-size: 25px;
     color: white;
 }
 
@@ -52,46 +55,44 @@ body {
     color: white;
 }
 
+
+/* main card styles */
 .main-card {
-    height: 160px;
     margin: 0 5px;
+    height: 160px;
 }
 
 .icon {
     width: 60px;
-    margin-bottom: 15px;
-    margin-left: 5px;
+    margin: 0 0 15px 5px;
 }
 
 .city {
     display: inline-block;
+    overflow-wrap: break-word;
     height: 115px;
     font-size: 35px;
-    padding-top: 5px;
-    overflow-wrap: break-word;
 }
 
-
 .description {
+    margin-left: 15px;
     font-size: 22px;
-    padding-left: 15px;
 }
 
 .date {
+    margin: 5px 15px 0 0;
     font-size: 20px;
     text-align: end;
-    padding: 5px 15px 0 0;
 }
 
 
-
-
+/* condition cards styles */
 .small-card {
-    height: 100px;
     margin: 0 5px;
+    height: 100px;
+    font-size: 25px;
     line-height: 50px;
     text-align: center;
-    font-size: 25px;
 }
 
 .big-temp {

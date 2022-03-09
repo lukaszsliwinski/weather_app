@@ -19,7 +19,7 @@ app.use(bp.json());
 app.use(bp.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 
-
+// Render main page without weather data
 app.get('/', function (req, res) {
     res.render('index', {
         weather: null,
@@ -39,17 +39,20 @@ app.post('/', (req, res) => {
     // Request for data using the URL
     request(url, function (err, response, body) {
         if (err) {
+            // Catch error
             res.render('index', { weather: null, place: 'Error, please try again' });
             console.log(err);
         } else {
-            // Create object from data 
+            // Create weather object from request body 
             let weather = JSON.parse(body);
             if (weather.main == undefined) {
+                // Render if city doesn't exist in db
                 res.render('index', {
                     weather: null,
                     place: `\xa0\xa0${req.body.city} doesn't exist`,
                 });
             } else {
+                // Format date to 'DD-MM-YYYY'
                 const formatTime = function(unixTimestamp) {
                     let date = new Date(unixTimestamp * 1000);
                     let hours = date.getHours();
@@ -57,6 +60,7 @@ app.post('/', (req, res) => {
                     return hours + ':' + minutes.slice(-2);
                 }
 
+                // Create weather parameters
                 let place = `${weather.name}, ${weather.sys.country}`,
                     description = `${weather.weather[0].description}`,
                     icon = `http://openweathermap.org/img/wn/${weather.weather[0].icon}@2x.png`,
@@ -71,6 +75,7 @@ app.post('/', (req, res) => {
                     pressure = `${Math.round(weather.main.pressure)}`,
                     humidity = `${weather.main.humidity}`;
 
+                // Render view with weather parameters
                 res.render('index', {
                     weather: weather,
                     place: place,
@@ -92,5 +97,6 @@ app.post('/', (req, res) => {
     });
 });
 
+// Start server
 app.listen(port);
 console.log('Server started at http://localhost:' + port);
