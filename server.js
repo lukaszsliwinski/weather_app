@@ -5,7 +5,7 @@ const request = require('request');
 const app = express();
 
 // Port number
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // Dotenv package
 require('dotenv').config();
@@ -99,4 +99,4 @@ app.post('/', (req, res) => {
 
 // Start server
 app.listen(port);
-console.log('Server started at http://localhost:' + port);
+// console.log('Server started at http://localhost:' + port);
