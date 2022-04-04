@@ -99,4 +99,3 @@ app.post('/', (req, res) => {
 
 // Start server
 app.listen(port);
-// console.log('Server started at http://localhost:' + port);

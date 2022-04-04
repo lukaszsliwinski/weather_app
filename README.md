@@ -3,6 +3,9 @@
 ## About
 Application for check actual weather in chosen city. Weather data are taken from openweathermap.org. This is my first application with the use of an external API. The view is rendered with EJS view engine.
 
+## Demo
+https://weatherappportfolio.herokuapp.com/
+
 ## Used technologies
 JavaScript<br>
 Node.js 16<br>
@@ -10,7 +13,7 @@ HTML5<br>
 CSS3<br>
 Bootstrap 5
 
-## Setup and run (Windows)
+## Setup and run on localhost (Windows)
 1 Install Node.js v.16 from website:<br>
 &emsp;https://nodejs.org/en/download/<br>
 2 Download repository
