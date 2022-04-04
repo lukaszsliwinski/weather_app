@@ -95,12 +95,35 @@ body {
     text-align: center;
 }
 
-.big-temp {
-    font-size: 35px;
-}
-
 h6 {
     display: block;
     padding-top: 5px;
     font-size: 14px;
+}
+
+
+/* Change font-size under width 520px */
+@media screen and (max-width: 520px) {
+    .city {
+        font-size: 25px;
+    }
+
+    .description {
+
+        font-size: 18px;
+    }
+
+    .date {
+        font-size: 12px;
+    }
+
+    .small-card {
+        height: 70px;
+        font-size: 16px;
+        line-height: 30px;
+    }
+
+    h6 {
+        font-size: 12px;
+    }
 }
