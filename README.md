@@ -8,10 +8,11 @@ https://weatherappportfolio.herokuapp.com/
 
 ## Used technologies
 JavaScript<br>
-Node.js 16<br>
+Node.js<br>
+Express<br>
 HTML5<br>
 CSS3<br>
-Bootstrap 5
+Bootstrap
 
 ## Setup and run on localhost (Windows)
 1 Install Node.js v.16 from website:<br>
