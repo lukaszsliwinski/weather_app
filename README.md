@@ -4,7 +4,7 @@
 Application for check actual weather in chosen city. Weather data are taken from openweathermap.org. This is my first application with the use of an external API. The view is rendered with EJS view engine.
 
 ## Demo
-https://weatherappportfolio.herokuapp.com/
+https://weatherappportfoliov1.herokuapp.com/
 
 ## Used technologies
 JavaScript<br>
